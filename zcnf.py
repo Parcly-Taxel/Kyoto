@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from itertools import combinations
 from subprocess import run
 import numpy as np
@@ -6,12 +5,12 @@ import re
 lit_re = re.compile(r"-?\d+")
 
 class zaran_cnf:
-    def __init__(self, ab, mn):
+    def __init__(self, a,b, m,n):
         self.clauses = []
-        self.a = a = ab if type(ab) == int else ab[0]
-        self.b = b = ab if type(ab) == int else ab[1]
-        self.m = m = mn if type(mn) == int else mn[0]
-        self.n = n = mn if type(mn) == int else mn[1]
+        self.a = a
+        self.b = b
+        self.m = m
+        self.n = n
         self.bitfield = bitfield = np.arange(m*n).reshape((m,n)) + 1
         for rows in combinations(range(m), a):
             for cols in combinations(range(n), b):
@@ -25,9 +24,6 @@ class zaran_cnf:
         encoding discussed in https://arxiv.org/abs/1810.12975."""
         cursor = self.cursor
         n = len(bits)
-        if comp < 0:
-            self.add_card_constraint_sinz([-b for b in bits], n-k, 1)
-            return
         res = []
         for i in range(k+1):
             for j in range(n-k+1):
@@ -37,11 +33,11 @@ class zaran_cnf:
                 right = cursor + k*j + (i-1)
                 if 0 < i and 0 < j < n-k:
                     res.append([-this, right])
-                if 0 < j:
+                if 0 < j and (comp >= 0 or i < k):
                     res.append(([-this] if 0 < i else []) + ([down] if i < k else []) + [-bit])
                 if 0 < i < k and 0 < j:
                     res.append([this, -down])
-                if 0 < i and (comp == 0 or j < n-k):
+                if 0 < i and (comp <= 0 or j < n-k):
                     res.append(([this] if 0 < j else []) + ([-right] if j < n-k else []) + [bit])
         self.clauses.extend(res)
         self.cursor += k*(n-k)
@@ -72,27 +68,24 @@ class zaran_cnf:
         self.clauses.extend(res)
         self.cursor += n-1
 
-    def set_col_counts(self, counts):
+    def set_col_counts(self, counts=None):
+        if counts == None:
+            counts = [-1] * self.n
         for (i, count) in enumerate(counts):
-            self.add_card_constraint_sinz(self.bitfield[:,i], count)
+            if count >= 0:
+                self.add_card_constraint_sinz(self.bitfield[:,i], count)
         for i in range(self.n-1):
             if counts[i] == counts[i+1]:
                 self.add_comparator(self.bitfield[:,i], self.bitfield[:,i+1])
 
-    def set_row_counts(self, counts):
+    def set_row_counts(self, counts=None):
         # e.g. [-1, -1, -1, 3, 3, 3, -1, -1, -1, -1]
         # will be interpreted as [>=3 * 3, 3 * 3, <=3 * 4]
-        rest_pawns = self.pawns
-        rest_vars = []
+        if counts == None:
+            counts = [-1] * self.m
         for (i, count) in enumerate(counts):
-            row = self.bitfield[i]
             if count >= 0:
-                self.add_card_constraint_sinz(row, count)
-                rest_pawns -= count
-            else:
-                if floor > 0:
-                    self.add_card_constraint_sinz(row, floor, 1)
-                rest_vars.extend(row)
+                self.add_card_constraint_sinz(self.bitfield[i], count)
         for i in range(self.m-1):
             if counts[i] == counts[i+1]:
                 self.add_comparator(self.bitfield[i], self.bitfield[i+1])
