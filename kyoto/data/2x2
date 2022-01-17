@@ -1,0 +1,69 @@
+z(2,2,2,2) >= 3
+(2, 1)
+2 2 DQ==
+
+z(2,2,3,3) >= 6
+(2, 2, 2)
+3 3 7gA=
+
+z(2,2,4,4) >= 9
+(3, 2, 2, 2)
+4 4 njU=
+
+z(2,2,5,5) >= 12
+(3, 3, 2, 2, 2)
+5 5 0uUyAA==
+5 5 0qU6AA==
+5 5 2sQ2AA==
+(3, 3, 3, 2, 1)
+(4, 2, 2, 2, 2)
+5 5 PqYyAA==
+
+z(2,2,6,6) >= 16
+(3, 3, 3, 3, 2, 2)
+6 6 jGpl5QA=
+6 6 rGJlxQg=
+6 6 rGYk1Qg=
+(3, 3, 3, 3, 3, 1)
+(4, 3, 3, 2, 2, 2)
+
+z(2,2,7,7) >= 21
+(3, 3, 3, 3, 3, 3, 3)
+7 7 cKbKkikNAQ==
+
+z(2,2,8,8) >= 24
+(3, 3, 3, 3, 3, 3, 3, 3)
+8 8 4JhUKoYxDUM=
+8 8 4JhUMg4phUM=
+8 8 4JhUKoZJJRM=
+8 8 4JhUMg5JJYM=
+8 8 4BySSiZRKYU=
+8 8 4BySSiYxiUU=
+8 8 4JhUSiYxDYM=
+8 8 4JhUSiYphRM=
+(4, 3, 3, 3, 3, 3, 3, 2)
+8 8 cEwqlqEZBUM=
+8 8 8EwqFiEZhUM=
+8 8 cEyqFiEZhUM=
+8 8 cEyqFoEZJUM=
+8 8 cEyqFsEZJQM=
+8 8 cMwqFoEZJUM=
+8 8 cMwqFqEZBUM=
+8 8 cEwqloEZJUM=
+8 8 cEwqlsEZJQM=
+8 8 cMwqFkEZJYM=
+8 8 8EwqFoEZJUM=
+8 8 8EwqFkEZJYM=
+8 8 8EwqFhGJJUM=
+8 8 cEyqFpEJJUM=
+8 8 cMwqFpEJJUM=
+8 8 cEwqlhGJJUM=
+(4, 4, 3, 3, 3, 3, 2, 2)
+(4, 4, 3, 3, 3, 3, 3, 1)
+(4, 4, 4, 3, 3, 2, 2, 2)
+(4, 4, 4, 3, 3, 3, 2, 1)
+(4, 4, 4, 4, 2, 2, 2, 2)
+(5, 3, 3, 3, 3, 3, 2, 2)
+(5, 3, 3, 3, 3, 3, 3, 1)
+(5, 4, 3, 3, 3, 2, 2, 2)
+
