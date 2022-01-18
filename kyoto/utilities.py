@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+import re
 from math import comb
 from fractions import Fraction as F
-from base64 import b64encode
+from base64 import b64encode, b64decode
 import numpy as np
 
 def romanbound1(a,b, m,n):
@@ -18,31 +19,49 @@ def romanbound1(a,b, m,n):
 def romanbound(a,b, m,n):
     return min(romanbound1(a,b, m,n), romanbound1(b,a, n,m))
 
-def packlimit(a,b, m):
+def can_pack(a,b, m):
+    """Return (t, exact) where t is (a lower bound on) the largest number of complete a-graphs
+    on a+1 vertices that can be packed into the complete a-graph on m vertices duplicated b-1 times,
+    and exact indicates whether this packing is exact."""
     if (a,b) == (2,2): # OEIS A001839
-        t = (m-1)//2*m//3 - (m%6 == 5)
-        return comb(m,2) - 2*t - (m%6 not in (1,3)) # subtract a-1 iff the packing is not exact
-    return (b-1) * comb(m,a)
+        return ((m-1)//2*m//3 - (m%6 == 5), m%6 in (1,3))
+    return (0, True)
+
+def packlimit(a,b, m):
+    """Return the "packing limit" for n given a,b and m."""
+    t, exact = can_pack(a,b, m)
+    return (b-1) * comb(m,a) - a*t - (a-1)*(not exact)
 
 def zbounds(a,b, m,n):
     """Return bounds for Zarankiewicz's function at the given arguments."""
     if m-a > n-b:
         return zbounds(b,a, n,m)
-    ub = romanbound(a,b, m,n)
+    rbound = romanbound(a,b, m,n)
+    lbs = [0]
     if packlimit(a,b, m) <= n:
-        return [ub, ub] # Roman's bound is exact in these cases
-    return [0, ub]
+        lbs.append(rbound) # Roman's bound is exact in these cases
+    ubs = [rbound]
+    # Search the relevant data file for any tighter bounds
+    zbound_re = re.compile(rf"z\({a},{b},{m},{n}\) (>=|<) (\d+)")
+    with open(f"{__file__.rpartition('/')[0]}/data/{a}x{b}", 'r') as f:
+        for match in zbound_re.finditer(f.read()):
+            if match[1] == ">=":
+                lbs.append(int(match[2]))
+            else:
+                ubs.append(int(match[2]) - 1)
+    return [max(lbs), min(ubs)]
 
-def get_partitions(a,b, m0,n0, k0, Elims={}):
+def get_partitions(a,b, m0,n0, k0):
     """Return a list of all partitions of k0 into n0 parts from 0 to m0 each
-    that satisfy Guy's argument A and (if provided as a dictionary) E for an a-by-b minor."""
+    that satisfy Guy's arguments A and E for an a-by-b minor."""
     Alim = (b-1) * comb(m0,a)
+    Elims = {n: zbounds(a,b, m0,n)[1] for n in range(b, n0)}
     def P(k, m, n, partial=[]):
         completes = []
         if sum(comb(part, a) for part in partial) > Alim:
             return []
-        if k == 0 and all(sum(partial[:j]) <= Elim for (j, Elim) in Elims.items()):
-            return [tuple(partial)]
+        if k == 0:
+            return [tuple(partial)] if all(sum(partial[:j]) <= Elim for (j, Elim) in Elims.items()) else []
         if (d := k - (m-1)*n) > 0:
             completes.extend(P(k-d*m, m, n-d, partial + [m]*d))
         else:
@@ -59,3 +78,10 @@ def encode_array(A):
     Af = A.flatten()
     b = np.pad(Af, (0,-len(Af)%8)).reshape(-1,8) @ 2**np.arange(8)
     return f"{A.shape[0]} {A.shape[1]} {b64encode(bytes(list(b))).decode()}"
+
+def decode_array(ln):
+    """Decode an output from encode_array() into a 0-1 matrix."""
+    hs, ws, dat = ln.split()
+    h, w = int(hs), int(ws)
+    A = np.array([[(b&(1<<i))>>i for i in range(8)] for b in b64decode(dat)])
+    return A.flatten()[:h*w].reshape(h,w)

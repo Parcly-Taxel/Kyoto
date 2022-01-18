@@ -86,7 +86,7 @@ class zaran_cnf:
         self.clauses.extend(res)
         self.cursor += n-1
 
-    def set_col_counts(self, counts=None):
+    def set_col_counts(self, counts=None, revsort=False):
         """Set cardinality constraints for the columns in this instance."""
         if counts == None:
             counts = [-1] * self.n
@@ -95,9 +95,9 @@ class zaran_cnf:
                 self.add_card_constraint_sinz(self.bitfield[:,i], count)
         for i in range(self.n-1):
             if counts[i] == counts[i+1]:
-                self.add_comparator(self.bitfield[:,i], self.bitfield[:,i+1])
+                self.add_comparator(self.bitfield[:,i+revsort], self.bitfield[:,i+1-revsort])
 
-    def set_row_counts(self, counts=None):
+    def set_row_counts(self, counts=None, revsort=False):
         """Set cardinality constraints for the rows in this instance."""
         # e.g. [-1, -1, -1, 3, 3, 3, -1, -1, -1, -1]
         # will be interpreted as [>=3 * 3, 3 * 3, <=3 * 4]
@@ -108,7 +108,7 @@ class zaran_cnf:
                 self.add_card_constraint_sinz(self.bitfield[i], count)
         for i in range(self.m-1):
             if counts[i] == counts[i+1]:
-                self.add_comparator(self.bitfield[i], self.bitfield[i+1])
+                self.add_comparator(self.bitfield[i+revsort], self.bitfield[i+1-revsort])
 
     def write(self, cnf_path):
         """Write this instance's clauses to the given filename, with .cnf
