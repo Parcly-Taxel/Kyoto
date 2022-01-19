@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import numpy as np
-np.set_printoptions(linewidth=300)
-from kyoto.prove import prove_solutions
+np.set_printoptions(linewidth=1000, threshold=10**6)
+from kyoto.prove import prove_solutions2, find_solution
 from kyoto.utilities import zbounds, decode_array
 
-A = np.array([[zbounds(2,2, m,n) for n in range(2,32)] for m in range(2,32)])
+A = np.array([[zbounds(2,2, m,n) for n in range(1,41)] for m in range(1,41)])
 print(A[:,:,0])
 print(A[:,:,1])
 
@@ -88,11 +88,25 @@ for (n, z) in enumerate([73, 75], 22):
         lb = prove_solutions(2,2, 14,n, z, 1, True, True)
         ub = prove_solutions(2,2, 14,n, z+1, {}, True, True)
         print()
-        print(lb + "\n" + ub + "\n", file=df)"""
+        print(lb + "\n" + ub + "\n", file=df)
 
-for arr_s in ("14 24 xwAAGQMAAXwAAYAPKoQAEggRAhFiDCAkNEACBIrASEBYkASoYCGBoBIU", "14 25 xwAAMgYABPABCAB8oEAIUQYhgECEGBYIAhQgggkUcCABhYIEogImCgS0ABE=",
-        "14 26 DwAAxAcAEOADQADwARJCGIgQgiGEEBiRgIiEEEkQFFCCAiERIhgoCIkIQoAQDQ==", "14 27 +QAACPgAQAD4AAIA+KAQQggJIYSIEEJICCGEDEhAooCBIImAKAgJCgIECRzAAAUD",
-        "14 28 +QAAEPABAAHgAxAAwAcKIYQgIYQQIoQQIoQQQgwCIkIBEQkkQUBEiEgQQDBAC0igyA=="):
-    A = decode_array(arr_s)
-    print("\n".join("".join("1" if c else "." for c in r) for r in A))
-    print()
+# (4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2) (7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6) is quite a hard case
+
+for (n, z) in enumerate([87, 89, 91, 92, 94], 29):
+    with open("kyoto/data/2x2", 'a') as df:
+        lb = find_solution(2,2, 14,n, z)
+        ub = prove_solutions2(2,2, 14,n, z+1)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions2(2,2, 15,15, 61, {((5,5)+(4,)*12+(3,),)*2: 6})
+prove_solutions2(2,2, 15,15, 62)"""
+
+# XXX Guy's values for z(2,2, 15,15) to z(2,2, 15,17) are also too low by 1
+
+"""for (n, z) in enumerate([64, 67, 69, 72, 75, 77, 78, 80, 82, 85, 86, 88, 91, 93, 95, 96, 98, 100, 102], 16):
+    with open("kyoto/data/2x2", 'a') as df:
+        lb = find_solution(2,2, 15,n, z)
+        ub = prove_solutions2(2,2, 15,n, z+1)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)"""

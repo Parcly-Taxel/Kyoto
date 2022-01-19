@@ -58,7 +58,8 @@ def get_partitions(a,b, m0,n0, k0):
     Elims = {n: zbounds(a,b, m0,n)[1] for n in range(b, n0)}
     def P(k, m, n, partial=[]):
         completes = []
-        if sum(comb(part, a) for part in partial) > Alim:
+        if sum(comb(part, a) for part in partial) > Alim or \
+                any(sum(partial[:j]) > Elim for (j, Elim) in Elims.items() if j <= len(partial)):
             return []
         if k == 0:
             return [tuple(partial)] if all(sum(partial[:j]) <= Elim for (j, Elim) in Elims.items()) else []
@@ -69,6 +70,16 @@ def get_partitions(a,b, m0,n0, k0):
                 completes.extend(P(k-part, part, n-1, partial + [part]))
         return completes
     return P(k0, m0, n0)
+
+def argd_inadmissible1(a,b, cpart,rpart):
+    """Determine whether Guy's argument D prohibits a Zarankiewicz matrix with the
+    given column and row partitions from existing."""
+    return sum(comb(c-1,a-1) for c in cpart[-rpart[0]:]) > (b-1)*comb(len(rpart)-1,a-1)
+
+def argd_inadmissible(a,b, cpart,rpart):
+    """Determine whether Guy's argument D or D' ("transpose argument")
+    prohibits a Zarankiewicz matrix with the given column and row partitions from existing."""
+    return argd_inadmissible1(a,b, cpart,rpart) or argd_inadmissible1(b,a, rpart,cpart)
 
 def encode_array(A):
     """To encode the 0-1 matrix A it is first flattened, padded to a multiple of 8 bits

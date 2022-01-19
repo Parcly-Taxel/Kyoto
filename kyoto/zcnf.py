@@ -86,7 +86,7 @@ class zaran_cnf:
         self.clauses.extend(res)
         self.cursor += n-1
 
-    def set_col_counts(self, counts=None, revsort=False):
+    def set_col_counts(self, counts=None):
         """Set cardinality constraints for the columns in this instance."""
         if counts == None:
             counts = [-1] * self.n
@@ -95,9 +95,9 @@ class zaran_cnf:
                 self.add_card_constraint_sinz(self.bitfield[:,i], count)
         for i in range(self.n-1):
             if counts[i] == counts[i+1]:
-                self.add_comparator(self.bitfield[:,i+revsort], self.bitfield[:,i+1-revsort])
+                self.add_comparator(self.bitfield[:,i+1], self.bitfield[:,i])
 
-    def set_row_counts(self, counts=None, revsort=False):
+    def set_row_counts(self, counts=None):
         """Set cardinality constraints for the rows in this instance."""
         # e.g. [-1, -1, -1, 3, 3, 3, -1, -1, -1, -1]
         # will be interpreted as [>=3 * 3, 3 * 3, <=3 * 4]
@@ -108,7 +108,7 @@ class zaran_cnf:
                 self.add_card_constraint_sinz(self.bitfield[i], count)
         for i in range(self.m-1):
             if counts[i] == counts[i+1]:
-                self.add_comparator(self.bitfield[i+revsort], self.bitfield[i+1-revsort])
+                self.add_comparator(self.bitfield[i+1], self.bitfield[i])
 
     def write(self, cnf_path):
         """Write this instance's clauses to the given filename, with .cnf
@@ -132,7 +132,7 @@ class zaran_cnf:
                 print(" ".join(map(str, -lits)), "0", file=f)
         return np.sign(lits.reshape(self.m,self.n))//2 + 1
 
-    def find_all_solutions(self, cnf_path, solver_path="./kissat", proof_path=None, expected_sols=0):
+    def find_all_solutions(self, cnf_path, expected_sols=0, proof_path=None, solver_path="./kissat"):
         """Yield all solutions to the instance at cnf_path using the solver at solver_path.
         proof_path, if provided, will hold a proof of unsatisfiability after the negations of
         all solutions are added, and expected_sols may be set in hopes of optimising the searches."""
