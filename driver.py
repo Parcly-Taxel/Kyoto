@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import numpy as np
 np.set_printoptions(linewidth=400, threshold=2000)
-from kyoto.prove import prove_solutions2, find_solution
+from kyoto.prove import prove_solutions, find_solution
 from kyoto.utilities import zbounds, decode_array
 
-A = np.array([[zbounds(2,2, m,n) for n in range(1,35)] for m in range(1,35)])
+A = np.array([[zbounds(2,2, m,n) for n in range(1,32)] for m in range(1,32)])
 print(A[:,:,0])
 print(A[:,:,1])
 
@@ -125,5 +125,15 @@ for (n, z) in enumerate([103], 32):
     with open("kyoto/data/2x2", 'a') as df:
         # lb = find_solution(2,2, 16,n, z)
         ub = prove_solutions2(2,2, 16,n, z+1)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(2,2, 17,17, 74, {((5,)*6+(4,)*11,)*2: 20})
+prove_solutions(2,2, 17,17, 75)
+
+for (n, z) in enumerate([77, 80, 84, 85, 87, 89, 91, 94, 96, 98], 18):
+    with open("kyoto/data/2x2", 'a') as df:
+        lb = find_solution(2,2, 17,n, z)
+        ub = prove_solutions(2,2, 17,n, z+1)
         print()
         print(lb + "\n" + ub + "\n", file=df)"""

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import re
 from math import comb
+from itertools import product, combinations_with_replacement
 from fractions import Fraction as F
 from base64 import b64encode, b64decode
 import numpy as np
@@ -80,6 +81,15 @@ def argd_inadmissible(a,b, cpart,rpart):
     """Determine whether Guy's argument D or D' ("transpose argument")
     prohibits a Zarankiewicz matrix with the given column and row partitions from existing."""
     return argd_inadmissible1(a,b, cpart,rpart) or argd_inadmissible1(b,a, rpart,cpart)
+
+def get_bipartitions(a,b, m,n, k):
+    """Assuming k ones are on the board, return all possible pairs (column partition, row partition)
+    compatible with Guy's arguments A, D and E."""
+    if a == b and m == n:
+        combos = combinations_with_replacement(get_partitions(a,b, m,n, k), 2)
+    else:
+        combos = product(get_partitions(a,b, m,n, k), get_partitions(b,a, n,m, k))
+    return list(filter(lambda ps: not argd_inadmissible(a,b, ps[0],ps[1]), combos))
 
 def encode_array(A):
     """To encode the 0-1 matrix A it is first flattened, padded to a multiple of 8 bits
