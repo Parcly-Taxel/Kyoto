@@ -146,4 +146,41 @@ for (n, z) in enumerate([84, 88, 90, 91, 93, 96, 99, 101, 103], 19):
         lb = find_solution(2,2, 18,n, z)
         ub = prove_solutions(2,2, 18,n, z+1)
         print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(2,2, 19,19, 88, {((5,)*12+(4,)*7,)*2: 2})
+prove_solutions(2,2, 19,19, 89)
+
+for (n, z) in enumerate([92, 95, 96, 98, 100, 103, 106], 20):
+    with open("kyoto/data/2x2", 'a') as df:
+        ub = prove_solutions(2,2, 19,n, z+1)
+        lb = find_solution(2,2, 19,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(2,2, 20,20, 96, {((5,)*16+(4,)*4,)*2: 4})
+prove_solutions(2,2, 20,20, 97)
+
+for (n, z) in enumerate([100, 101, 103, 105, 108, 111], 21):
+    with open("kyoto/data/2x2", 'a') as df:
+        ub = prove_solutions(2,2, 20,n, z+1)
+        lb = find_solution(2,2, 20,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(2,2, 21,21, 105, {((5,)*21,)*2: 12})
+prove_solutions(2,2, 21,21, 106)
+
+for (n, z) in enumerate([106, 108, 110], 22):
+    with open("kyoto/data/2x2", 'a') as df:
+        ub = prove_solutions(2,2, 21,n, z+1)
+        lb = find_solution(2,2, 21,n, z)
+        print()
         print(lb + "\n" + ub + "\n", file=df)"""
+
+prove_solutions(2,2, 22,22, 108, {((6,)+(5,)*20+(2,),)*2: 24,
+                                  ((6,)+(5,)*19+(4,3), (6,)+(5,)*20+(2,)): 72,
+                                  ((6,)+(5,)*19+(4,3),)*2: 360,
+                                  ((5,)*21+(3,),)*2: 0xf02d,
+                                  ((5,)*20+(4,4),)*2: 0xf02d})
+prove_solutions(2,2, 22,22, 109)

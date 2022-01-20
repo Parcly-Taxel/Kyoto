@@ -935,3 +935,132 @@ z(2,2,18,27) >= 103
 18 27 DwBgiAMAjOQAgAR4AEFBDEBChIGgRAQQicBAiECYgABpAYgSEYASYQAAAvVASAIEhAkgwCACIoAKIJJAAA==
 z(2,2,18,27) < 104
 
+z(2,2,19,19) >= 88
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4) (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4)
+19 19 BzDIAEYYwESBKDAYBoISJAlRQlARhEQJCCeAzBBYgAAFKiFAgkA0AiAGBEoIAA==
+19 19 BzDIAEYYwBQBKjAkEiISJAaBQ1ARhDAJqCSA0RBYgAAFyiBAiBBMAqAEEEoIAA==
+z(2,2,19,19) < 89
+
+z(2,2,19,20) >= 92
+19 20 BzCQAQxhABMYwAoCJUKEgohCIaBEhESQFEgYiFAiMCgESREgkwAsBgEOIBUArAAA
+z(2,2,19,20) < 93
+
+z(2,2,19,21) >= 95
+19 21 BzAgAxiEA8CAgRHAwFQAikQBFBJCgoiCQQHSACiiQEJIFJAoBGIIgkIJkBIEJAuAmAI=
+z(2,2,19,21) < 96
+
+z(2,2,19,22) >= 96
+19 22 BwB4BgYQBgYEBgYBBoaCKCBBFIgiCEIRBEOQQAlCkFACRAoBCkCDTADBDEBQgCKgFALQAgI=
+z(2,2,19,22) < 97
+
+z(2,2,19,23) >= 98
+19 23 AR4QAXEQAcnwAICRAQAOAwoEBgpUEASSEAGhACgTJIAiCUAKAEMkIiAMJGAIEVACBpAYAjAKAg==
+z(2,2,19,23) < 99
+
+z(2,2,19,24) >= 100
+19 24 4QGAID4AQMIDgEQcAIlkAwgJBVAgCaAQEQRCBoSAigJAUhAEIgAyLAAFFAMQRCBIGEiACBEKkCAh
+z(2,2,19,24) < 101
+(5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3) (7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3) (7, 7, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3) (7, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3) (7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3) (7, 7, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3) (7, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3) (7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3) (7, 7, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3) (7, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (7, 7, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (7, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (8, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (8, 7, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3) (8, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (7, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (7, 7, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (7, 7, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (8, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (8, 7, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3) (8, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+
+z(2,2,19,25) >= 103
+19 25 YwCACQ8AIeIAhEAOBBJlAEQBBzCgEiCSCgUIRBIEBkSEIAigBGEAkUAhEIIkAAkBMSBMQCAoACTiEAAB
+z(2,2,19,25) < 104
+(5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4) (6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(6, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4) (6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+(6, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4) (6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+
+z(2,2,19,26) >= 106
+19 26 YwCABR4AKIAHICFiIBgAhiJEIgQhEhFI0AggCkwAQ0gBREpCAYgCCQgwRAADYRBAgQJBEJIAKDAJAUBDAQA=
+z(2,2,19,26) < 107
+
+z(2,2,20,20) >= 96
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4) (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4)
+20 20 DwARByCBAxTAgZIgKEJEAolCAUlEQUhgIiiCiIRCiFACoRQgMQFMGAHgICQBpAiAUQA=
+20 20 DwARByCBAxTAgRIkJAqEAolCIYhESEQIIyiQhBSCCEYCERUgKgFMGAHgICQBJAWAiQA=
+20 20 DwARByCBAxTAgZIgKEJEAolCIohEKEQIJRiQhBSECCYCoRQgMQFMGAHgICQBFAWAigA=
+20 20 DwARByCBAxTAgRIkJAqEAolCAklEIUhgJBiCiIREiDACERUgKgFMGAHgICQBlAiAUgA=
+z(2,2,20,20) < 97
+
+z(2,2,20,21) >= 100
+20 21 DwAhDkAEDpAADhQADiVBkEgBFEIiApKCQgGSwBCiQERIJDAICYoQQoaACCkCIiqAIgYgkwA=
+z(2,2,20,21) < 101
+
+z(2,2,20,22) >= 101
+20 22 B4BwDkAQHCAEOBABcIiSACJBIYiCEAJJAUMEQYmAkAgJRCQBIjGAgCJBAZEQowAYJgBSgAJKRA==
+z(2,2,20,22) < 102
+
+z(2,2,20,23) >= 103
+20 23 B4AwHIAocIA4SYAQSYAIwRAEhAUUEhASIgJRIIIQRYCBSEARQSADQRAqBBBhAVDIAJBDAIAUBoCFBA==
+z(2,2,20,23) < 104
+
+z(2,2,20,24) >= 105
+20 24 AT4AAsIDBEQcCIhkEBCpIwBIRYCAiQAREQEGHiAAwgQgAgmQJAMghBBCKASCSFEAsEgAUAJQYCAFgKEI
+z(2,2,20,24) < 106
+
+z(2,2,20,25) >= 108
+20 25 Aw4ACeQBIFAcgEDJAAYiEoQIGWAEVEBEUiUAFBJCAEUACgkGCmAIoEABCIYUBCCRwABMCEAoCkDgCgAAGmAA
+z(2,2,20,25) < 109
+
+z(2,2,20,26) >= 111
+20 26 Aw4AFcABqAA4IIEgBwgUZECgpAAGoRAoApRARJEABoMEMCJMIgAiUYBAhAQUYAIAikQEBMIgBDAlAEBJIACOEAA=
+z(2,2,20,26) < 112
+
+z(2,2,21,21) >= 105
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5) (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBAkSwSBCgUJQKFAgCRLCQCSBCEMIhiBBCUJIKAGRQgA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBJIQIQxCEkgwhFCQIBIMQhQoCIUChiBBCUJIKAGRQgA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBAoRoUBCgkEwSFAIIZJAQoQhCEkCBqFAQQpIIQhRggA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRhBASCSRCGEKQJFCgEBIKRCQYCIMEBqFAQQpIIQhRggA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBAoRoUBCgkEwSFAQChKkQBSCCCUIhhBCCSRIGAKRJAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRhCARCUJCKEGQQlCQIBIMQhQoCIUCBpJAIQxIEggxhAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBAkSwSBCgUJQKFAIEpIgRIQSCCkEBpJAIQxIEggxhAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBJIQIQxCEkgwhFAIEpIgRIQSCCkEBglCwSBIgQJRKAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBKEQQQpCIUhQglCgEBIKRCQYCIMEhhBCCSRIGAKRJAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRhCARCUJCKEGQQlAgCRLCQCSBCEMIBglCwSBIgQJRKAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRhBASCSRCGEKQJFAQChKkQBSCCCUIBgpBoUBIggExSAA=
+21 21 HwAgPAAEeIAA8BAA4EVEhBAREUREAhGRBKEQQQpCIUhQglAIIZJAQoQhCEkCBgpBoUBIggExSAA=
+z(2,2,21,21) < 106
+
+z(2,2,21,22) >= 106
+21 22 DwBwPAAQ8AAEwAMBAI9ERCAiIggREYKICAWhQIIUEIUghBIEhhCCEkggYQiIJAEECgVCgQIJRoBBIg==
+z(2,2,21,22) < 107
+
+z(2,2,21,23) >= 108
+21 23 DwBQeAAwwAMsIgYQIgwIIhgEIjAkiAgiGAGhQISgiIACUUBCgiCSIBAGBTAEEigBBiQ0ACIlAABKAwBaAg==
+z(2,2,21,23) < 109
+
+z(2,2,21,24) >= 110
+21 24 DwAw8ABQAA9gAPCQAACvEREBISICQUQEgYgIEiQIIhgEQoECgkIBFIIEJEEIRCgBhBQCGEgCKIQBSBIIiCEE
+z(2,2,21,24) < 111
+
+z(2,2,22,22) < 109
+(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4) (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4)
+
