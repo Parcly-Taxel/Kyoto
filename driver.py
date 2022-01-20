@@ -131,7 +131,7 @@ for (n, z) in enumerate([103], 32):
 prove_solutions(2,2, 17,17, 74, {((5,)*6+(4,)*11,)*2: 20})
 prove_solutions(2,2, 17,17, 75)
 
-for (n, z) in enumerate([77, 80, 84, 85, 87, 89, 91, 94, 96, 98], 18):
+for (n, z) in enumerate([77, 80, 84, 85, 87, 89, 91, 94, 96, 98, 101, 102], 18):
     with open("kyoto/data/2x2", 'a') as df:
         lb = find_solution(2,2, 17,n, z)
         ub = prove_solutions(2,2, 17,n, z+1)
