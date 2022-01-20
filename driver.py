@@ -123,7 +123,7 @@ for (n, z) in enumerate([70, 73, 76, 80, 81, 83, 85, 87, 90, 91, 93, 96, 98, 100
 # There is only one case for the upper bound below, but it takes quite a while to prove UNSAT
 for (n, z) in enumerate([103], 32):
     with open("kyoto/data/2x2", 'a') as df:
-        # lb = find_solution(2,2, 16,n, z)
+        lb = find_solution(2,2, 16,n, z)
         ub = prove_solutions2(2,2, 16,n, z+1)
         print()
         print(lb + "\n" + ub + "\n", file=df)
@@ -135,5 +135,15 @@ for (n, z) in enumerate([77, 80, 84, 85, 87, 89, 91, 94, 96, 98, 101, 102], 18):
     with open("kyoto/data/2x2", 'a') as df:
         lb = find_solution(2,2, 17,n, z)
         ub = prove_solutions(2,2, 17,n, z+1)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(2,2, 18,18, 81, {((5,)*9+(4,)*9,)*2: 12})
+prove_solutions(2,2, 18,18, 82)
+
+for (n, z) in enumerate([84, 88, 90, 91, 93, 96, 99, 101, 103], 19):
+    with open("kyoto/data/2x2", 'a') as df:
+        lb = find_solution(2,2, 18,n, z)
+        ub = prove_solutions(2,2, 18,n, z+1)
         print()
         print(lb + "\n" + ub + "\n", file=df)"""
