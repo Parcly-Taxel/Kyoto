@@ -177,12 +177,22 @@ for (n, z) in enumerate([106, 108, 110], 22):
         ub = prove_solutions(2,2, 21,n, z+1)
         lb = find_solution(2,2, 21,n, z)
         print()
-        print(lb + "\n" + ub + "\n", file=df)
+        print(lb + "\n" + ub + "\n", file=df)"""
 
 # TODO automate cube-and-conquer?
-prove_solutions(2,2, 22,22, 109)
+"""prove_solutions(2,2, 22,22, 109)
 prove_solutions(2,2, 22,22, 108, {((6,2)+(5,)*20,)*2: 24,
                                   ((6,4,3)+(5,)*19, (6,2)+(5,)*20): 24,
                                   ((6,4,3)+(5,)*19,)*2: 60,
                                   ((3,)+(5,)*21,)*2: 24,
-                                  ((4,4)+(5,)*20,)*2: 12}, True)"""
+                                  ((4,4)+(5,)*20,)*2: 12}, True)
+
+for (n, z) in enumerate([110, 114], 23):
+    with open("kyoto/data/2x2", 'a') as df:
+        ub = prove_solutions(2,2, 22,n, z+1)
+        lb = find_solution(2,2, 22,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)"""
+
+prove_solutions(2,2, 23,23, 116)
+prove_solutions(2,2, 23,23, 115, {((5,)*23,)*2: 10**6}) # XXX just how many solutions are there to this instance?

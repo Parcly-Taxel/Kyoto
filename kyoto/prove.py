@@ -5,7 +5,7 @@ from .graphs import encode_array
 def prove_solutions(a,b, m,n, k, nonzeros={}, icdv=False):
     resstr = f"z({a},{b},{m},{n}) " + (">=" if nonzeros else "<") + f" {k}\n"
     print(resstr, end="")
-    for (i, (cpart, rpart)) in enumerate(get_bipartitions(a,b, m,n, k)[::-1]):
+    for (i, (cpart, rpart)) in enumerate(get_bipartitions(a,b, m,n, k)):
         if icdv:
             cpart = sort_icdv(cpart)
             rpart = sort_icdv(rpart)
