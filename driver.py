@@ -2,7 +2,8 @@
 import numpy as np
 np.set_printoptions(linewidth=400, threshold=2000)
 from kyoto.prove import prove_solutions, find_solution
-from kyoto.utilities import zbounds, decode_array
+from kyoto.utilities import zbounds
+from kyoto.graphs import decode_array
 
 A = np.array([[zbounds(2,2, m,n) for n in range(1,32)] for m in range(1,32)])
 print(A[:,:,0])
@@ -176,11 +177,12 @@ for (n, z) in enumerate([106, 108, 110], 22):
         ub = prove_solutions(2,2, 21,n, z+1)
         lb = find_solution(2,2, 21,n, z)
         print()
-        print(lb + "\n" + ub + "\n", file=df)"""
+        print(lb + "\n" + ub + "\n", file=df)
 
-prove_solutions(2,2, 22,22, 108, {((6,)+(5,)*20+(2,),)*2: 24,
-                                  ((6,)+(5,)*19+(4,3), (6,)+(5,)*20+(2,)): 72,
-                                  ((6,)+(5,)*19+(4,3),)*2: 360,
-                                  ((5,)*21+(3,),)*2: 0xf02d,
-                                  ((5,)*20+(4,4),)*2: 0xf02d})
+# TODO automate cube-and-conquer?
 prove_solutions(2,2, 22,22, 109)
+prove_solutions(2,2, 22,22, 108, {((6,2)+(5,)*20,)*2: 24,
+                                  ((6,4,3)+(5,)*19, (6,2)+(5,)*20): 24,
+                                  ((6,4,3)+(5,)*19,)*2: 60,
+                                  ((3,)+(5,)*21,)*2: 24,
+                                  ((4,4)+(5,)*20,)*2: 12}, True)"""

@@ -1,10 +1,14 @@
 from .zcnf import zaran_cnf, solve_cnf
-from .utilities import get_bipartitions, encode_array
+from .utilities import get_bipartitions, sort_icdv
+from .graphs import encode_array
 
-def prove_solutions(a,b, m,n, k, nonzeros={}):
+def prove_solutions(a,b, m,n, k, nonzeros={}, icdv=False):
     resstr = f"z({a},{b},{m},{n}) " + (">=" if nonzeros else "<") + f" {k}\n"
     print(resstr, end="")
     for (i, (cpart, rpart)) in enumerate(get_bipartitions(a,b, m,n, k)[::-1]):
+        if icdv:
+            cpart = sort_icdv(cpart)
+            rpart = sort_icdv(rpart)
         ln = f"{cpart} {rpart}"
         print(ln)
         resstr += ln + "\n"
@@ -22,16 +26,11 @@ def find_solution(a,b, m,n, k):
     resstr = f"z({a},{b},{m},{n}) >= {k}\n"
     print(resstr, end="")
     for (i, (cpart, rpart)) in enumerate(get_bipartitions(a,b, m,n, k)):
-        #if cpart != (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 2, 2):
-        #    continue
         print(cpart, rpart)
         fn = f"{a}x{b} {m}x{n} {k} {i}"
         cnf = zaran_cnf(a,b, m,n)
         cnf.set_col_counts(cpart)
         cnf.set_row_counts(rpart)
-        # XXX a hack
-        #for x in (0, 1, 11, 12, 13):
-        #    cnf.clauses.append([cnf.bitfield[x,0]])
         try:
             sol = next(cnf.find_all_solutions(fn, 1, fn))
             ln = encode_array(sol)

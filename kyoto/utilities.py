@@ -3,7 +3,6 @@ import re
 from math import comb
 from itertools import product, combinations_with_replacement
 from fractions import Fraction as F
-from base64 import b64encode, b64decode
 import numpy as np
 
 def romanbound1(a,b, m,n):
@@ -20,7 +19,7 @@ def romanbound1(a,b, m,n):
 def romanbound(a,b, m,n):
     return min(romanbound1(a,b, m,n), romanbound1(b,a, n,m))
 
-def can_pack(a,b, m):
+def packable_simplices(a,b, m):
     """Return (t, exact) where t is (a lower bound on) the largest number of complete a-graphs
     on a+1 vertices that can be packed into the complete a-graph on m vertices duplicated b-1 times,
     and exact indicates whether this packing is exact."""
@@ -30,7 +29,7 @@ def can_pack(a,b, m):
 
 def packlimit(a,b, m):
     """Return the "packing limit" for n given a,b and m."""
-    t, exact = can_pack(a,b, m)
+    t, exact = packable_simplices(a,b, m)
     return (b-1) * comb(m,a) - a*t - (a-1)*(not exact)
 
 def zbounds(a,b, m,n):
@@ -91,18 +90,6 @@ def get_bipartitions(a,b, m,n, k):
         combos = product(get_partitions(a,b, m,n, k), get_partitions(b,a, n,m, k))
     return list(filter(lambda ps: not argd_inadmissible(a,b, ps[0],ps[1]), combos))
 
-def encode_array(A):
-    """To encode the 0-1 matrix A it is first flattened, padded to a multiple of 8 bits
-    with zeros, then reshaped to an (N,8)-shape matrix. Each row is then read as a little-endian
-    byte and the resulting byte sequence is base64 encoded. The final code is then
-    "[height] [width] [base64]"."""
-    Af = A.flatten()
-    b = np.pad(Af, (0,-len(Af)%8)).reshape(-1,8) @ 2**np.arange(8)
-    return f"{A.shape[0]} {A.shape[1]} {b64encode(bytes(list(b))).decode()}"
-
-def decode_array(ln):
-    """Decode an output from encode_array() into a 0-1 matrix."""
-    hs, ws, dat = ln.split()
-    h, w = int(hs), int(ws)
-    A = np.array([[(b&(1<<i))>>i for i in range(8)] for b in b64decode(dat)])
-    return A.flatten()[:h*w].reshape(h,w)
+def sort_icdv(part):
+    """Return this partition sorted by Increasing Count of occurences, then Decreasing part Value."""
+    return tuple(-v for (c, v) in sorted([(part.count(p), -p) for p in set(part)]) for _ in range(c))
