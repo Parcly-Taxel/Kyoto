@@ -203,3 +203,7 @@ for (n, z) in enumerate([118], 24):
         lb = find_solution(2,2, 23,n, z)
         print()
         print(lb + "\n" + ub + "\n", file=df)"""
+
+prove_solutions(2,2, 24,24, 123)
+# XXX all solutions to the following must be of the form shown, but not sure how many non-iso solutions
+prove_solutions(2,2, 24,24, 122, {((6,)*4+(5,)*18+(4,4),)*2: 400}, False)
