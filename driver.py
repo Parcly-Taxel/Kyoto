@@ -192,7 +192,14 @@ for (n, z) in enumerate([110, 114], 23):
         ub = prove_solutions(2,2, 22,n, z+1)
         lb = find_solution(2,2, 22,n, z)
         print()
-        print(lb + "\n" + ub + "\n", file=df)"""
+        print(lb + "\n" + ub + "\n", file=df)
 
 prove_solutions(2,2, 23,23, 116)
-prove_solutions(2,2, 23,23, 115, {((5,)*23,)*2: 10**6}) # XXX just how many solutions are there to this instance?
+prove_solutions(2,2, 23,23, 115, {((5,)*23,)*2: 6**6}) # see verifygraphs23.py
+
+for (n, z) in enumerate([118], 24):
+    with open("kyoto/data/2x2", 'a') as df:
+        ub = prove_solutions(2,2, 23,n, z+1)
+        lb = find_solution(2,2, 23,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)"""
