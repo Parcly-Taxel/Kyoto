@@ -41,6 +41,13 @@ def find_solution(a,b, m,n, k):
             continue
     return resstr
 
+def extend_solution(a,b, m,n, B, k):
+    """Use B as a starting point to find solutions with k extra 1s."""
+    fn = f"{a}x{b} {m}x{n} +{k}"
+    cnf = zaran_cnf(a,b, m,n)
+    cnf.add_card_constraint_sinz(cnf.set_cubes(B), k)
+    yield from cnf.find_all_solutions(fn, 1000, fn)
+
 def prove_small():
     fn = "test"
     cnf = zaran_cnf(2,2, 19,2)

@@ -110,6 +110,16 @@ class zaran_cnf:
             if counts[i] == counts[i+1]:
                 self.add_comparator(self.bitfield[i+1], self.bitfield[i])
 
+    def set_cubes(self, B):
+        """Add unit clauses where the 0s and 1s are in B and return
+        bitfield variables in all other places."""
+        Bp = np.pad(B, ((0,self.m-B.shape[0]),(0,self.n-B.shape[1])), constant_values=-1)
+        for (i,j) in np.argwhere(Bp == 0):
+            self.clauses.append([-self.bitfield[i,j]])
+        for (i,j) in np.argwhere(Bp == 1):
+            self.clauses.append([self.bitfield[i,j]])
+        return self.bitfield[np.logical_and(Bp != 0, Bp != 1)]
+
     def write(self, cnf_path):
         """Write this instance's clauses to the given filename, with .cnf
         automatically appended."""
