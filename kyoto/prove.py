@@ -47,12 +47,3 @@ def extend_solution(a,b, m,n, B, k):
     cnf = zaran_cnf(a,b, m,n)
     cnf.add_card_constraint_sinz(cnf.set_cubes(B), k)
     yield from cnf.find_all_solutions(fn, 1000, fn)
-
-def prove_small():
-    fn = "test"
-    cnf = zaran_cnf(2,2, 19,2)
-    cnf.set_col_counts((5,5))
-    cnf.set_row_counts((-6,)*6+(-5,)*13)
-    for sol in cnf.find_all_solutions(fn, 10000, fn):
-        ln = encode_array(sol)
-        print(ln)
