@@ -1,42 +1,39 @@
 #!/usr/bin/env python3
 import numpy as np
-from kyoto.graphs import encode_array, decode_array, Btog6
-rng = np.random.default_rng()
+from kyoto.zcnf import zaran_cnf
+from kyoto.graphs import encode_array
 
-# A 2.5-hour sharpSAT (https://github.com/marcthurley/sharpSAT) run shows that
-# the CNF corresponding to the z(2,2, 23,23) = 115, 5^23/5^23 case has 46656 = 6^6 solutions.
-# This program generates 46656 distinct solutions from one graph, showing that the CNF's solutions
-# are all isomorphic.
+# For the 23×23 [5^23, 5^23] case the first five rows and columns are completely forced
+# by the existing constraints. These generate a 4×4 grid of 4×4 boxes; we split on the sums
+# of these boxes, the whole grid of which may be freely permuted boxwise and then lex-sorted
+# normally *while preserving the box sums*. A combinatorial argument shows that the non-isomorphic
+# sum configurations are in bijection with disjoint unions of even cycles (including the 2-cycle)
+# optionally minus an edge, 12 in all. These cases form the secondary split and are enough to
+# generate all solutions in a reasonable time - 310 solutions which happen to be all isomorphic.
 
-A = decode_array("23 23 C0EAC0EAC0EAC0EAC0EAC0EAC0EAC0EAC8EAC4EAC4EAC4EAC4EAC4EAC4MAC4IAC4IAC4IAC4IAG4IAE4IAF4IAAQ==")
-powers = (2**np.arange(23))[::-1]
+boxsums = [[2,4,4,4,4,2,4,4,4,4,2,4,4,4,4,2],
+[3,4,4,4,4,2,4,4,4,4,2,4,4,4,4,2],
+[2,4,4,4,4,2,4,4,4,4,3,3,4,4,3,3],
+[3,4,4,4,4,2,4,4,4,4,3,3,4,4,3,3],
+[2,4,4,4,4,2,4,4,4,4,3,3,4,4,3,4],
+[2,4,4,4,4,3,3,4,4,3,4,3,4,4,3,3],
+[3,4,4,4,4,3,3,4,4,3,4,3,4,4,3,3],
+[2,4,4,4,4,3,3,4,4,3,4,3,4,4,3,4],
+[3,3,4,4,3,3,4,4,4,4,3,3,4,4,3,3],
+[3,3,4,4,3,3,4,4,4,4,3,3,4,4,3,4],
+[3,3,4,4,3,4,3,4,4,3,4,3,4,4,3,4],
+[3,3,4,4,3,4,3,4,4,3,4,3,4,4,3,3]]
+boxsums = [np.array(l).reshape(4,4) for l in boxsums]
+solcounts = [0, 0, 0, 0, 16, 48, 0, 0, 192, 0, 6, 48]
 
-def lsort1(X):
-    return X[np.argsort(X @ powers)[::-1]]
-
-def lsort(X):
-    while True:
-        Y = lsort1(lsort1(X).T).T
-        if np.all(X == Y):
-            return Y
-        X = Y
-
-def randsorted():
-    perm1 = rng.permutation(np.arange(23))
-    perm2 = rng.permutation(np.arange(23))
-    return lsort(A[np.ix_(perm1,perm2)])
-
-seen = set()
-while len(seen) < 6**6:
-    A = randsorted()
-    new = encode_array(A)
-    if new not in seen:
-        newT = encode_array(A.T)
-        if newT not in seen:
-            print(new)
-            print(newT)
-            seen.add(new)
-            seen.add(newT)
-        else:
-            print(new, "*")
-            seen.add(new)
+for (n, bs) in enumerate(boxsums):
+    cnf = zaran_cnf(2,2, 23,23)
+    cnf.set_col_counts((5,)*23)
+    cnf.set_row_counts((5,)*23)
+    for i in range(4):
+        for j in range(4):
+            cnf.add_card_constraint_sinz(cnf.bitfield[5+4*i:9+4*i,5+4*j:9+4*j].flatten(), bs[i,j])
+    print(f"{n}:")
+    print(bs)
+    for sol in cnf.find_all_solutions(f"23-{n}", solcounts[n], f"23-{n}"):
+        print(encode_array(sol))

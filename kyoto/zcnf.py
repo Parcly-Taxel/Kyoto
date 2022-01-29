@@ -99,8 +99,6 @@ class zaran_cnf:
 
     def set_row_counts(self, counts=None):
         """Set cardinality constraints for the rows in this instance."""
-        # e.g. [-1, -1, -1, 3, 3, 3, -1, -1, -1, -1]
-        # will be interpreted as [>=3 * 3, 3 * 3, <=3 * 4]
         if counts == None:
             counts = [-1] * self.m
         for (i, count) in enumerate(counts):
