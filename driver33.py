@@ -47,9 +47,29 @@ prove_solutions(3,3, 9,9, 49, {((6,)*4+(5,)*5,)*2: 14,
                                ((7,)+(6,)*3+(5,)*4+(4,),)*2: 1})
 prove_solutions(3,3, 9,9, 50)
 
-for (n, z) in enumerate([54, 59, 64, 67, 70, 73, 77], 10):
+for (n, z) in enumerate([54, 59, 64, 67, 70, 73, 77, 81, 85], 10):
     with open("kyoto/data/3x3", 'a') as df:
         ub = prove_solutions(3,3, 9,n, z+1)
         lb = find_solution(3,3, 9,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(3,3, 10,10, 60, {((6,)*10,)*2: 16})
+prove_solutions(3,3, 10,10, 61)
+
+for (n, z) in enumerate([64, 68, 73, 77, 81, 85, 90, 94], 11):
+    with open("kyoto/data/3x3", 'a') as df:
+        ub = prove_solutions(3,3, 10,n, z+1)
+        lb = find_solution(3,3, 10,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(3,3, 11,11, 69, {((7,)*4+(6,)*6+(5,),)*2: 3})
+prove_solutions(3,3, 11,11, 70)
+
+for (n, z) in enumerate([74, 80, 84, 88], 12):
+    with open("kyoto/data/3x3", 'a') as df:
+        ub = prove_solutions(3,3, 11,n, z+1)
+        lb = find_solution(3,3, 11,n, z)
         print()
         print(lb + "\n" + ub + "\n", file=df)"""
