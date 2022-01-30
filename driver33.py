@@ -67,9 +67,20 @@ for (n, z) in enumerate([64, 68, 73, 77, 81, 85, 90, 94], 11):
 prove_solutions(3,3, 11,11, 69, {((7,)*4+(6,)*6+(5,),)*2: 3})
 prove_solutions(3,3, 11,11, 70)
 
-for (n, z) in enumerate([74, 80, 84, 88], 12):
+for (n, z) in enumerate([74, 80, 84, 88, 92, 96, 101], 12):
     with open("kyoto/data/3x3", 'a') as df:
         ub = prove_solutions(3,3, 11,n, z+1)
         lb = find_solution(3,3, 11,n, z)
+        print()
+        print(lb + "\n" + ub + "\n", file=df)
+
+prove_solutions(3,3, 12,12, 80, {((8,)+(7,)*6+(6,)*5,)*2: 1,
+                                 ((7,)*8+(6,)*4,)*2: 1})
+prove_solutions(3,3, 12,12, 81)
+
+for (n, z) in enumerate([86, 91, 96, 99], 13):
+    with open("kyoto/data/3x3", 'a') as df:
+        ub = prove_solutions(3,3, 12,n, z+1)
+        lb = find_solution(3,3, 12,n, z)
         print()
         print(lb + "\n" + ub + "\n", file=df)"""
