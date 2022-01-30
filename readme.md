@@ -6,6 +6,6 @@ My initial research was confined to 3×3 minors in square matrices, formatted as
 
 ----
 
-The Zarankiewicz number z(a,b, m,n) is the maximum number of 1s in an m×n binary matrix with no all-1 a×b minor. To prove such a number in the general case requires both showing that there is an admissible matrix with k 1s and no such matrix with k+1 1s; files in the `data` subfolder record both maximal matrices in a base64 format and proofs of impossibility as the cases considered.
+The Zarankiewicz number z(a,b, m,n) is the maximum number of 1s in an m×n binary matrix with no all-1 a×b minor. To prove such a number in the general case requires both showing that there is an admissible matrix with k 1s and no such matrix with k+1 1s; files in the `data` subfolder record both maximal matrices in a base64 format and proofs of impossibility as the cases considered. For square matrices it is also desirable to obtain _all_ non-isomorphic maximal matrices, where isomorphism is with respect to the bipartite graphs of which these matrices are biadjacency matrices.
 
 The default arguments to the functions proving Zarankiewicz numbers in `prove.py` assume a compiled [Kissat](https://github.com/arminbiere/kissat) executable in the top-level directory.
