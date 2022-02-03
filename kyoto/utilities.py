@@ -28,16 +28,15 @@ def packable_simplices(a,b, m):
         return b-1
     if (a,b) == (2,2): # OEIS A001839
         return (m-1)//2*m//3 - (m%6 == 5)
-    if (a,b) == (3,3):
+    if (a,b) == (2,3): # twice OEIS A001840
+        return (m-1)*m // 3
+    if (a,b) == (3,2): # OEIS A001843
+        return ((m-2)//2*(m-1)//3 - (m%6 == 0))*m//4
+    if (a,b) == (3,3): # OEIS A351100
         if m%6 in (2,4):
-            return comb(m,3)//2
-        # The exact packing for m = 5 is just cyclic shifts of (1,2,3,4)
-        # The optimal but necessarily inexact (since there are 2*comb(5,2) = 20 triangles
-        # at each vertex but each tetrahedron uses 3 of those triangles) is
-        # 1 2 3 4, 2 3 4 5, 3 4 5 6, 4 5 6 1, 5 6 1 2, 6 1 2 3,
-        # 1 2 4 5, 2 3 5 6, 3 4 6 1
-        # The highest possible value for m = 11 may be 81 (these values were verified by Gurobi)
-        d = {5: 5, 6: 9, 7: 15, 9: 40, 11: 80}
+            return comb(m,3)//2 # perfect, by Hanani
+        # These values were verified by Gurobi and some casework
+        d = {5: 5, 6: 9, 7: 15, 9: 40, 11: 80, 12: 108, 13: 143, 15: 225, 17: 340, 18: 405}
         if m in d:
             return d[m]
         return packable_simplices(a,b, m-1)

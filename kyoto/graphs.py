@@ -30,6 +30,6 @@ def Btog6(B):
     """Convert a biadjacency matrix to a graph6 string."""
     m, n = B.shape
     G = np.zeros((m+n, m+n), dtype=int)
-    G[n:,:m] = B
-    G[:m,n:] = B.T
+    G[n:,:n] = B
+    G[:n,n:] = B.T
     return tograph6(G)
