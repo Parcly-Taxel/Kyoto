@@ -113,7 +113,8 @@ for (n, z) in enumerate([123], 16):
         ub = prove_solutions(3,3, 15,n, z+1)
         lb = find_solution(3,3, 15,n, z)
         print()
-        print(lb + "\n" + ub + "\n", file=df)"""
+        print(lb + "\n" + ub + "\n", file=df)
 
-# prove_solutions(3,3, 16,16, 128, {((8,)*16,)*2: 1})
-prove_solutions(3,3, 16,16, 129)
+prove_solutions(3,3, 16,16, 129)"""
+
+prove_solutions(3,3, 16,16, 128, {((8,)*16,)*2: 1})

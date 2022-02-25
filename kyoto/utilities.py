@@ -40,6 +40,11 @@ def packable_simplices(a,b, m):
         if m in d:
             return d[m]
         return packable_simplices(a,b, m-1)
+    if (a,b) == (4,4):
+        d = {6: 7, 7: 21, 8: 36}
+        if m in d:
+            return d[m]
+        return packable_simplices(a,b, m-1)
     return None
 
 def packlimit(a,b, m):
