@@ -15,7 +15,7 @@ prove_solutions(4,4, 5,5, 22, {((5,5,4,4,4),)*2: 1})
 
 prove_solutions(4,4, 6,6, 31, {((6,5,5,5,5,5),)*2: 1})
 prove_solutions(4,4, 6,6, 32)
-for (n, z) in enumerate([36, 39, 43, 47, 51, 55, 59], 7):
+for (n, z) in enumerate([36, 39, 43, 47, 51, 55, 59, 77, 82, 87, 90, 95, 100], 7):
     with open("kyoto/data/4x4", 'a') as df:
         ub = prove_solutions(4,4, 6,n, z+1)
         lb = find_solution(4,4, 6,n, z)
