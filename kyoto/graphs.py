@@ -2,7 +2,7 @@ from base64 import b64encode, b64decode
 import numpy as np
 
 def encode_array(A):
-    """To encode the 0-1 matrix A it is first flattened, padded to a multiple of 8 bits
+    """To encode the 0-1 matrix A it is first flattened, padded on the right to a multiple of 8 bits
     with zeros, then reshaped to an (N,8)-shape matrix. Each row is then read as a little-endian
     byte and the resulting byte sequence is base64 encoded. The final code is then
     "[height] [width] [base64]"."""
