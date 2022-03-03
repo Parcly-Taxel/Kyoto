@@ -34,7 +34,7 @@ for (n, z) in enumerate([37, 40, 44, 47, 50, 53, 56, 60, 63, 66, 69, 72, 75, 78,
 prove_solutions(3,3, 8,8, 42, {((7,)+(5,)*7,)*2: 1})
 prove_solutions(3,3, 8,8, 43)
 
-for (n, z) in enumerate([45, 50, 53, 57, 60, 64, 67, 70, 74, 77], 9):
+for (n, z) in enumerate([45, 50, 53, 57, 60, 64, 67, 70, 74, 77, 81, 84, 87, 90, 94, 97, 100, 104, 108], 9):
     with open("kyoto/data/3x3", 'a') as df:
         ub = prove_solutions(3,3, 8,n, z+1)
         lb = find_solution(3,3, 8,n, z)
@@ -47,7 +47,7 @@ prove_solutions(3,3, 9,9, 49, {((6,)*4+(5,)*5,)*2: 14,
                                ((7,)+(6,)*3+(5,)*4+(4,),)*2: 1})
 prove_solutions(3,3, 9,9, 50)
 
-for (n, z) in enumerate([54, 59, 64, 67, 70, 73, 77, 81, 85], 10):
+for (n, z) in enumerate([54, 59, 64, 67, 70, 73, 77, 81, 85, 89, 93, 96, 100], 10):
     with open("kyoto/data/3x3", 'a') as df:
         ub = prove_solutions(3,3, 9,n, z+1)
         lb = find_solution(3,3, 9,n, z)
@@ -57,7 +57,7 @@ for (n, z) in enumerate([54, 59, 64, 67, 70, 73, 77, 81, 85], 10):
 prove_solutions(3,3, 10,10, 60, {((6,)*10,)*2: 16})
 prove_solutions(3,3, 10,10, 61)
 
-for (n, z) in enumerate([64, 68, 73, 77, 81, 85, 90, 94], 11):
+for (n, z) in enumerate([64, 68, 73, 77, 81, 85, 90, 94, 98, 102], 11):
     with open("kyoto/data/3x3", 'a') as df:
         ub = prove_solutions(3,3, 10,n, z+1)
         lb = find_solution(3,3, 10,n, z)

@@ -33,7 +33,7 @@ for (n, z) in enumerate([45, 49, 54, 58, 63, 68, 72], 8):
 
 prove_solutions(4,4, 8,8, 51, {((7,)*3+(6,)*5,)*2: 2})
 prove_solutions(4,4, 8,8, 52)
-for (n, z) in enumerate([55, 60, 65, 70, 75, 80], 9):
+for (n, z) in enumerate([55, 60, 65, 70, 75, 80, 85, 90, 95, 99], 9):
     with open("kyoto/data/4x4", 'a') as df:
         ub = prove_solutions(4,4, 8,n, z+1)
         lb = find_solution(4,4, 8,n, z)
@@ -43,7 +43,7 @@ for (n, z) in enumerate([55, 60, 65, 70, 75, 80], 9):
 prove_solutions(4,4, 9,9, 61, {((8,)*2+(7,)*3+(6,)*4,)*2: 13,
                                ((8,)+(7,)*5+(6,)*3,)*2: 225})
 prove_solutions(4,4, 9,9, 62)
-for (n, z) in enumerate([67, 72, 78, 84, 88], 10):
+for (n, z) in enumerate([67, 72, 78, 84, 88, 94, 99], 10):
     with open("kyoto/data/4x4", 'a') as df:
         ub = prove_solutions(4,4, 9,n, z+1)
         lb = find_solution(4,4, 9,n, z)
